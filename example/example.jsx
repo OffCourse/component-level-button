@@ -9,7 +9,6 @@ class Example extends React.Component {
   }
 
   setLevel(selection) {
-    console.log(selection);
     let { type } = selection;
     this.setState({ type });
   }
@@ -17,12 +16,14 @@ class Example extends React.Component {
   render() {
     let { type } = this.state;
     let current = !!type;
+    let title = "feedback";
 
     return (
       <section>
           <LevelButton
             current={ current }
-            type={ type || "feedback" }
+            title={ title }
+            type={ type || title }
             setLevel={ this.setLevel.bind(this) }/>
           <div>Current Type = { type }</div>
       </section>

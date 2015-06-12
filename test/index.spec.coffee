@@ -14,11 +14,16 @@ describe "Level Button Component", ->
     testdom "<html><body></body></html>"
     @setLevel = () -> 
 
-  describe "type is not set", ->
+  describe "General", ->
     When  -> @subject  = renderElement @Component, { @setLevel }
     Then  -> @classes = @subject.className.split ' '
     And   -> @classes.includes "btn"
-    And   -> !@classes.includes "btn-is-active"
+    And   -> @subject.innerText = "Level"
+
+  describe "title is set", ->
+    Given -> @title = "Foo"
+    When  -> @subject  = renderElement @Component, { @setLevel, @title }
+    Then  -> @subject.innerText = "Foo"
 
   describe "type is set but not current", ->
     Given -> 

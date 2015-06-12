@@ -23,13 +23,13 @@ class LevelButton extends React.Component {
   }
 
   render() {
-    let { setLevel, type } = this.props;
+    let { setLevel, type, title } = this.props;
     let selection = { type };
     return (
       <li
         onClick={ setLevel.bind(this, selection) }
         className={ this.classes() }>
-        Level
+        { title || "Level" }
       </li>
     );
   };
@@ -42,6 +42,7 @@ LevelButton.defaultProps = {
 LevelButton.propTypes = {
   setLevel: React.PropTypes.func,
   current: React.PropTypes.bool,
+  title: React.PropTypes.string,
   type: React.PropTypes.string
 };
 
